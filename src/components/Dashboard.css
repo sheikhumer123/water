@@ -1,0 +1,39 @@
+.todo_add_container {
+  height: 130px;
+  width: 700px;
+  display: block;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 3px 12px 16px 7px rgba(0, 0, 0, 0.48);
+  -webkit-box-shadow: 3px 12px 16px 7px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 3px 12px 16px 7px rgba(0, 0, 0, 0.48);
+
+  padding: 10px;
+}
+.test {
+  background-color: rgb(94, 0, 184);
+  color: white;
+}
+.add_inp {
+  width: 90%;
+}
+.add_btn {
+  width: 10%;
+  background-color: rgb(94, 0, 184);
+  border: none;
+  color: white;
+}
+.task_list_container {
+  width: 60%;
+  margin-top: 60px;
+}
+.task_li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.li_p {
+  margin-left: 30px;
+}
