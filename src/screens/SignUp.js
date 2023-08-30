@@ -1,21 +1,24 @@
-import axios from "axios";
-
 import React, { useState } from "react";
+import axios from "../components/axios";
+import { useNavigate } from "react-router-dom";
+
 const SignUp = () => {
+  const navigate = useNavigate();
+  const [confirmPass, setConfirmPass] = useState("Pakistan123@");
   const [user, setUser] = useState({
-    username: "",
-    email: "",
-    password: "",
+    name: "test4",
+    email: "test4@gmail.com",
+    password: "Pakistan123@",
   });
-
-  const add_user = (e) => {
-    console.log(user);
+  const add_user = async (e) => {
     e.preventDefault();
-    axios.post("http://localhost/signup/", user).then(function (response) {
-      console.log(response.data);
-    });
+    if (user.password === confirmPass) {
+      await axios.post("/register", user);
+      navigate("/login");
+    } else {
+      alert("Password has to be matched");
+    }
   };
-
   return (
     <>
       <div>
@@ -47,7 +50,8 @@ const SignUp = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               name="username"
-              onChange={(e) => setUser({ ...user, username: e.target.value })}
+              value={user.name}
+              onChange={(e) => setUser({ ...user, name: e.target.value })}
             />
           </div>
           <div className="form-group">
@@ -61,6 +65,7 @@ const SignUp = () => {
               aria-describedby="emailHelp"
               placeholder="Enter email"
               onChange={(e) => setUser({ ...user, email: e.target.value })}
+              value={user.email}
             />
             <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
@@ -76,6 +81,7 @@ const SignUp = () => {
               id="exampleInputPassword1"
               placeholder="Password"
               onChange={(e) => setUser({ ...user, password: e.target.value })}
+              value={user.password}
             />
           </div>
           <div className="form-group">
@@ -86,7 +92,9 @@ const SignUp = () => {
               type="password"
               className="form-control"
               id="exampleInputPassword2"
-              placeholder="Password"
+              placeholder="Confirm Password"
+              onChange={(e) => setConfirmPass(e.target.value)}
+              value={confirmPass}
             />
           </div>
           <div className="form-check">

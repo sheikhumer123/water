@@ -16,6 +16,13 @@
   background-color: rgb(94, 0, 184);
   color: white;
 }
+.test2 {
+  background-color: rgb(94, 0, 184);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0% 10%;
+}
 .add_inp {
   width: 90%;
 }
